@@ -12,17 +12,17 @@ Digital root of the number N
 
 #include <stdio.h>
  int main() {
-     int number;
-     scanf("%d", &number);
-     int mod = 0;
-     int sum = 0;
-     while (number > 0) {
-        mod = number % 10;
-        sum = mod + sum;
-        number = number / 10;
-     }
-     while (sum >= 10){ 
-        sum =  (sum / 10) + (sum % 10);
-     }
-     printf("%d", sum);
- }
+     int number; // Declaring the number variable
+     scanf("%d", &number); // Pointing the variable to the number being enetered
+     int mod = 0; // Declaring the mod variable that stores value of the mod calculation
+     int sum = 0; // Declaring sum which stores the sum of the digits
+     while (number > 0) { // Summing up until the number is greater than 0
+        mod = number % 10; // Calculating the mod
+        sum = mod + sum; // Calculating the sum
+        number = number / 10; // Dividing the number so that digit being added to sum is no longer part of the number
+     } // Loop ends
+     while (sum >= 10){ // Checking if sum is still 2 or more digits longer 
+        sum =  (sum / 10) + (sum % 10); // Adding the digits of sum
+     } // Loop ends
+     printf("%d", sum); // Prints the sum
+ } // Main loop ends here
