@@ -63,6 +63,7 @@ int main() {
        sum = sum + nums[i][j];
    }
    sums[index] = sum;
+   // Finding the maximum value
    int max = sums[0];
    for(int i = 1; i < (2 * dimension + 2); i++) {
        if(sums[i] > max) {
