@@ -1,3 +1,15 @@
+/*Write a program to read a sequence of N integers and print the number that appears the maximum number of times in the sequence. 
+
+INPUT
+Input contains two lines. First line in the input indicates N, the number of integers in the sequence. Second line contains N integers, separated by white space.
+
+OUTPUT
+Element with the maximum frequency. If two numbers have the same highest frequency, print the number that appears first in the sequence.
+
+CONSTRAINTS
+1 <= N <= 10000
+The integers will be in the range [-100,100].#include<stdio.h>
+*/
 #include<stdio.h>
 #include<stdbool.h>
 int main() {
