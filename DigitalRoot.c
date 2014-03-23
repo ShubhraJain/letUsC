@@ -14,11 +14,11 @@ Digital root of the number N
  int main() {
      int number; 
      scanf("%d", &number); 
-     int mod = 0; // mod variable that stores value of the mod calculation
-     int sum = 0; // sum stores the sum of the digits
+     int mod = 0; // stores value of the mod calculation
+     int sum = 0; // stores the sum of the digits
      while (number > 0) { // Summing up until the number is greater than 0
-        mod = number % 10; // Calculating the mod
-        sum = mod + sum; // Calculating the sum
+        mod = number % 10; 
+        sum = mod + sum; 
         number = number / 10; // Dividing the number so that digit being added to sum is no longer part of the number
      } 
      while (sum >= 10){ // Checking if sum is still 2 or more digits longer 
