@@ -15,6 +15,13 @@ function check {
 }
 
 gcc FreqElement.c
-check "2 2 5 6 7 8" "5 6 8 7"
-check "1 1 99" "99"
-check "3 2 1 2 3 4 5 6" "1 2 4 6 5 3"
+# First argument starts with number of elements
+# followed by the elements themselves.
+# Second argument is the expected output (i.e. Frequent Element)
+check "6 2 2 5 6 7 8" 2
+check "3 1 1 99" 1
+check "8 3 2 1 2 3 4 5 6" 2
+check "1 1" 1
+check "2 1 2" 1
+check "4 1 2 1 2" 1
+check "3 4 4 4" 4 
