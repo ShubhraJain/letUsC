@@ -15,6 +15,7 @@ Elements in the matrix will be in the range [-100,100]
 
 #include<stdio.h>
 int main() {
+    setbuf(stdout, NULL);
     int rows, cols;
     scanf("%d %d", &rows, &cols);
     int nums[rows][cols];
@@ -26,46 +27,50 @@ int main() {
     int rowsIterated = 0; // Count of rows that have been traversed at given point
     int colsIterated = 0; // Count of cols that have been traversed at given point
     int nextDirection = 1;
-    int count = 0;
-    int startPoint = 0;
-    int round = 0;
+    int count = 0; // Count of elements iterated
+    int startPoint = 0; // Point where next traversal starts once a round is completed
+    int round = 0; // count of complete round
     while(count < rows*cols) {
 	if(nextDirection > 4) {
 	    nextDirection = nextDirection % 4;
 	}
 	if(nextDirection == 1) {
 	    for(int i = startPoint; i < cols - round; i++) {
-		printf("%d ", nums[startPoint][i]);
+		if(i > 0) {
+		    printf(" ");
+		}
+	        printf("%d", nums[startPoint][i]);
 		count++;
 	    }
-	    rowsIterated = rowsIterated + 1;
-	    nextDirection = nextDirection + 1;
-	    startPoint = startPoint + 1;
+	    rowsIterated += 1;
+	    nextDirection += 1;
+	    startPoint += 1;
 	}else if(nextDirection == 2) {
 	    int j = cols - round - 1;
 	    for(int i = startPoint; i < rows - round; i++) {
-		printf("%d ", nums[i][j]);
+		printf(" ");
+		printf("%d", nums[i][j]);
 		count++;
 	    }
-	    colsIterated = colsIterated + 1;
-            nextDirection = nextDirection + 1;
+	    colsIterated += 1;
+            nextDirection += 1;
 	}else if(nextDirection == 3) {
 	    for(int i =(cols - round - 2); i >= round; i--) {
-		printf("%d ", nums[rows-round - 1][i]);
+		printf(" ");
+		printf("%d", nums[rows-round - 1][i]);
 		count++;
 	    }
-	    rowsIterated = rowsIterated + 1;
-	    nextDirection = nextDirection + 1;
+	    rowsIterated += 1;
+	    nextDirection += 1;
 	}else if(nextDirection == 4){
 	    for(int i = (rows - round - 2); (i >= startPoint) ; i--) {
-		printf("%d ", nums[i][round]);
+		printf(" ");
+		printf("%d", nums[i][round]);
 		count++;
 	    }
-	    nextDirection = nextDirection + 1;
-            colsIterated = colsIterated + 1;
-	    round = round + 1;
-	} 
+	    nextDirection += 1;
+            colsIterated += 1;
+	    round += 1;
+	}
    }
 }
-
- 
